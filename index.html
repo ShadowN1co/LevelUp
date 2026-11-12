@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="theme-color" content="#101a19"><title>Wildbound — Last One Standing</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main id="app">
+  <canvas id="game" aria-label="Wildbound survival arena"></canvas>
+  <div class="vignette"></div>
+  <header id="hud" class="hud hidden">
+    <div class="top-left"><div class="eyebrow">SURVIVAL TIME</div><strong id="timer">00:00</strong><span class="divider"></span><div><div class="eyebrow">DEFEATED</div><strong id="kills">0</strong></div></div>
+    <div class="wave">WAVE <b id="wave">1</b></div>
+    <div class="top-right">
+      <div class="bar-label"><span>❤️ VITALS</span><strong id="hpText">0 / 0</strong></div><div class="bar"><i id="hpFill" class="health-fill"></i></div>
+      <div class="bar-label xp-label"><span>✦ EXPERIENCE</span><strong id="xpText">0 / 8</strong></div><div class="bar xp-bar"><i id="xpFill" class="xp-fill"></i></div>
+    </div>
+    <div class="bottom-left"><div class="portrait" id="portrait">🐺</div><div><strong id="heroName">Creature</strong><span>LEVEL <b id="level">1</b></span></div></div>
+    <div class="bottom-right"><button id="ultButton" class="ult-button" aria-label="Activate ultimate"><span id="ultIcon">✦</span><span class="ult-copy"><b id="ultName">Ultimate</b><small id="ultCharge">0% CHARGED · SPACE</small></span><kbd>SPACE</kbd></button></div>
+    <div id="toast" class="toast"></div>
+    <div class="controls-hint">WASD / ARROWS MOVE <span>·</span> AUTO ATTACK <span>·</span> SPACE ULTIMATE</div>
+  </header>
+  <section id="menu" class="screen">
+    <div class="menu-card">
+      <div class="brand-mark">✦</div><p class="eyebrow">A WILD LITTLE SURVIVAL GAME</p><h1>WILD<span>BOUND</span></h1>
+      <p class="intro">The arena is waking up.<br>How long can you hold your ground?</p>
+      <div class="menu-actions"><button id="playBtn" class="primary">Choose your fighter <span>→</span></button><button id="charactersBtn" class="secondary">Character roster</button><button id="statsBtn" class="text-button">Your field journal</button></div>
+      <div class="menu-foot"><span>✦ 10 UNIQUE SURVIVORS</span><span>∞ ENDLESS WAVES</span></div>
+    </div>
+    <div class="menu-art"><div class="sun"></div><div class="art-creature">🦊</div><div class="art-ring"></div><div class="art-label">STAY WILD.<br><b>STAY ALIVE.</b></div></div>
+  </section>
+  <section id="selectScreen" class="screen hidden">
+    <div class="panel roster-panel"><div class="screen-head"><div><p class="eyebrow">PICK YOUR SURVIVOR</p><h2>Choose a character</h2></div><button class="back-button" data-back="menu">← Back</button></div>
+      <div id="characterGrid" class="character-grid"></div>
+    </div>
+    <aside id="characterDetail" class="panel character-detail"></aside>
+  </section>
+  <section id="statsScreen" class="screen hidden">
+    <div class="panel stats-page"><div class="screen-head"><div><p class="eyebrow">YOUR RUNS, YOUR LEGACY</p><h2>Field journal</h2></div><button class="back-button" data-back="menu">← Back</button></div>
+      <div id="journalContent"></div>
+    </div>
+  </section>
+  <section id="levelScreen" class="overlay hidden"><div class="level-layout"><div class="level-main"><div class="overlay-heading"><span class="level-badge">✦ LEVEL UP</span><h2>Choose your next edge</h2><p>The arena can wait. Pick one upgrade to keep you alive.</p></div><div id="upgradeCards" class="upgrade-cards"></div></div><aside id="runStats" class="run-stats"></aside></div></section>
+  <section id="gameOver" class="overlay hidden"><div class="gameover-card"><div class="skull">✦</div><p class="eyebrow">THE WILD CLAIMS ANOTHER</p><h2>Run complete</h2><p class="gameover-sub">You made it further than most.</p><div id="runSummary" class="run-summary"></div><button id="againBtn" class="primary">Run it back <span>→</span></button><button id="homeBtn" class="secondary">Back to camp</button></div></section>
+  <div id="notice" class="notice hidden"></div>
+</main>
+<script src="game.js"></script>
+</body></html>
